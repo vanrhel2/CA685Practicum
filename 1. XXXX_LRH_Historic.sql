@@ -30,13 +30,13 @@ left join (
 
 			from [ETZ335IH_PROJECT_JERSEY].[dbo].[TBL_HISTORIC_LOAN_20170628] d
 			where
-			ACCOUNT_STATUS ='UDGÅET'
+			ACCOUNT_STATUS ='UDGÃ…ET'
 			and 
 			[VALID_FROM] = 
 			(
 				select max([VALID_TO]) 
 				from  [ETZ335IH_PROJECT_JERSEY].[dbo].[TBL_HISTORIC_LOAN_20170628] e 
-				where ACCOUNT_STATUS <>'UDGÅET' and d.[ar_id] = e.[ar_id]
+				where ACCOUNT_STATUS <>'UDGÃ…ET' and d.[ar_id] = e.[ar_id]
 			 )
 			 and
 			 right(left(d.[AR_ID],13),3) = 'A03'
@@ -133,7 +133,7 @@ AND ([CLOSURE_DATE] >= '2007-01-01' or [CLOSURE_DATE] is null)
       ,[FACT_DT] as [Date]
       ,left([IDKT],10) as [Account_Number]
    --   ,[REST_LOEBETID_DG] as [Period_to_Maturity_Days]
-	  --,[REST_LØBETID_GRP] as [Period_to_Maturity_Months]
+	  --,[REST_LÃ˜BETID_GRP] as [Period_to_Maturity_Months]
       ,[BETYD_MAX_OPR] as [Base_Limit]
       ,[UDNYTTELSE_OPR] as [Base_Exposure]
       ,[SALDO_OPR] as [Base_Balance]
@@ -179,7 +179,7 @@ AND ([CLOSURE_DATE] >= '2007-01-01' or [CLOSURE_DATE] is null)
       ,[FACT_DT] as [Date]
       ,left([IDKT],10) as [Account_Number]
    --   ,[REST_LOEBETID_DG] as [Period_to_Maturity_Days]
-	  --,[REST_LØBETID_GRP] as [Period_to_Maturity_Months]
+	  --,[REST_LÃ˜BETID_GRP] as [Period_to_Maturity_Months]
       ,[BETYD_MAX_OPR] as [Base_Limit]
       ,[UDNYTTELSE_OPR] as [Base_Exposure]
       ,[SALDO_OPR] as [Base_Balance]
@@ -225,7 +225,7 @@ AND ([CLOSURE_DATE] >= '2007-01-01' or [CLOSURE_DATE] is null)
       ,[FACT_DT] as [Date]
       ,left([IDKT],10) as [Account_Number]
    --   ,[REST_LOEBETID_DG] as [Period_to_Maturity_Days]
-	  --,[REST_LØBETID_GRP] as [Period_to_Maturity_Months]
+	  --,[REST_LÃ˜BETID_GRP] as [Period_to_Maturity_Months]
       ,[BETYD_MAX_OPR] as [Base_Limit]
       ,[UDNYTTELSE_OPR] as [Base_Exposure]
       ,[SALDO_OPR] as [Base_Balance]
@@ -271,7 +271,7 @@ AND ([CLOSURE_DATE] >= '2007-01-01' or [CLOSURE_DATE] is null)
       ,[FACT_DT] as [Date]
       ,left([IDKT],10) as [Account_Number]
    --   ,[REST_LOEBETID_DG] as [Period_to_Maturity_Days]
-	  --,[REST_LØBETID_GRP] as [Period_to_Maturity_Months]
+	  --,[REST_LÃ˜BETID_GRP] as [Period_to_Maturity_Months]
       ,[BETYD_MAX_OPR] as [Base_Limit]
       ,[UDNYTTELSE_OPR] as [Base_Exposure]
       ,[SALDO_OPR] as [Base_Balance]
@@ -317,7 +317,7 @@ AND ([CLOSURE_DATE] >= '2007-01-01' or [CLOSURE_DATE] is null)
       ,[FACT_DT] as [Date]
       ,left([IDKT],10) as [Account_Number]
    --   ,[REST_LOEBETID_DG] as [Period_to_Maturity_Days]
-	  --,[REST_LØBETID_GRP] as [Period_to_Maturity_Months]
+	  --,[REST_LÃ˜BETID_GRP] as [Period_to_Maturity_Months]
       ,[BETYD_MAX_OPR] as [Base_Limit]
       ,[UDNYTTELSE_OPR] as [Base_Exposure]
       ,[SALDO_OPR] as [Base_Balance]
@@ -363,7 +363,7 @@ AND ([CLOSURE_DATE] >= '2007-01-01' or [CLOSURE_DATE] is null)
       ,[FACT_DT] as [Date]
       ,left([IDKT],10) as [Account_Number]
    --   ,[REST_LOEBETID_DG] as [Period_to_Maturity_Days]
-	  --,[REST_LØBETID_GRP] as [Period_to_Maturity_Months]
+	  --,[REST_LÃ˜BETID_GRP] as [Period_to_Maturity_Months]
       ,[BETYD_MAX_OPR] as [Base_Limit]
       ,[UDNYTTELSE_OPR] as [Base_Exposure]
       ,[SALDO_OPR] as [Base_Balance]
@@ -409,7 +409,7 @@ AND ([CLOSURE_DATE] >= '2007-01-01' or [CLOSURE_DATE] is null)
       ,[FACT_DT] as [Date]
       ,left([IDKT],10) as [Account_Number]
    --   ,[REST_LOEBETID_DG] as [Period_to_Maturity_Days]
-	  --,[REST_LØBETID_GRP] as [Period_to_Maturity_Months]
+	  --,[REST_LÃ˜BETID_GRP] as [Period_to_Maturity_Months]
       ,[BETYD_MAX_OPR] as [Base_Limit]
       ,[UDNYTTELSE_OPR] as [Base_Exposure]
       ,[SALDO_OPR] as [Base_Balance]
@@ -637,7 +637,7 @@ INTO [ETZ335IH_PROJECT_JERSEY].[DBO].[XXXX_LRH_Historic_Mort_Payments_Temp]
 
 FROM [ETZ335IH_PROJECT_JERSEY].[dbo].[XXXX_LRH_Historic_Mort_Payments_Raw] a
 
-where  a.[GÆLDER_FRA_DT] = (Select max(a1.[GÆLDER_FRA_DT]) FROM [ETZ335IH_PROJECT_JERSEY].[dbo].[XXXX_LRH_Historic_Mort_Payments_Raw] a1 where a.[IDKT] = a1.[IDKT] and a.[MXNSDT] = a1.[MXNSDT] and a1.[TRANSAKTIONS_TP] <> 'S')
+where  a.[GÃ†LDER_FRA_DT] = (Select max(a1.[GÃ†LDER_FRA_DT]) FROM [ETZ335IH_PROJECT_JERSEY].[dbo].[XXXX_LRH_Historic_Mort_Payments_Raw] a1 where a.[IDKT] = a1.[IDKT] and a.[MXNSDT] = a1.[MXNSDT] and a1.[TRANSAKTIONS_TP] <> 'S')
 and a.[MXNSDT] <> ''
 
 
@@ -686,8 +686,8 @@ DROP TABLE	[ETZ335IH_PROJECT_JERSEY].[dbo].[XXXX_LRH_Historic_Mort_Arrears_Dates
 
 SELECT		distinct left(a.ar_id,10) as Account_number, 
 			a.[OTDT] as Start_DT 
-			,case when a.TRANSAKTIONS_TP <> 'S' then NULL else a.[GÆLDER_FRA_DT] end as End_DT
-			,CASE WHEN a.TRANSAKTIONS_TP = 'S' THEN DATEDIFF(DAY,a.[OTDT],a.[GÆLDER_FRA_DT]) END AS Days_in_Arrears
+			,case when a.TRANSAKTIONS_TP <> 'S' then NULL else a.[GÃ†LDER_FRA_DT] end as End_DT
+			,CASE WHEN a.TRANSAKTIONS_TP = 'S' THEN DATEDIFF(DAY,a.[OTDT],a.[GÃ†LDER_FRA_DT]) END AS Days_in_Arrears
 
 INTO		[ETZ335IH_PROJECT_JERSEY].[dbo].[XXXX_LRH_Historic_Mort_Arrears_Dates]
 
@@ -702,9 +702,9 @@ where		(	-- Came out of arrears
 				or
 				--Still in arrears
 				(
-					a.[GÆLDER_FRA_DT] =
+					a.[GÃ†LDER_FRA_DT] =
 					(
-						select	max([GÆLDER_FRA_DT])
+						select	max([GÃ†LDER_FRA_DT])
 						from	[ETZ335IH_PROJECT_JERSEY].[dbo].[XXXX_LRH_Historic_Mort_Arrears_Raw] d
 						where	a.AR_ID = d.AR_ID
 					)
@@ -799,7 +799,7 @@ INTO [ETZ335IH_PROJECT_JERSEY].[dbo].[XXXX_LRH_Historic_Mort_Int_Rate_Raw]
 FROM (
 
 SELECT [IDKT]
-      ,[GÆLDER_FRA_DT]
+      ,[GÃ†LDER_FRA_DT]
       ,[DBSA]
 	  ,TRANSAKTIONS_TP
      
@@ -811,7 +811,7 @@ SELECT [IDKT]
   UNION ALL
 
   	  SELECT a.[IDKT]
-      ,a.[GÆLDER_FRA_DT]
+      ,a.[GÃ†LDER_FRA_DT]
       ,a.[BTVR]/100000 as [DBSA]
 	  ,a.TRANSAKTIONS_TP
  
@@ -822,7 +822,7 @@ SELECT [IDKT]
 
   left join (
 				SELECT [IDKT]
-					  ,[GÆLDER_FRA_DT]
+					  ,[GÃ†LDER_FRA_DT]
 					  ,[DBSA]
 					  ,TRANSAKTIONS_TP
 					
@@ -853,7 +853,7 @@ FROM [ETZ335IH_PROJECT_JERSEY].[dbo].[XXXX_LRH_Historic_Mort_Base] a
 LEFT JOIN [ETZ335IH_PROJECT_JERSEY].[dbo].[XXXX_LRH_Historic_Mort_Int_Rate_Raw] b
 ON a.[ACCOUNT_NUMBER] = b.[IDKT]
 
-WHERE b.[GÆLDER_FRA_DT] = (SELECT MAX(c.[GÆLDER_FRA_DT]) FROM [ETZ335IH_PROJECT_JERSEY].[dbo].[XXXX_LRH_Historic_Mort_Int_Rate_Raw] c where b.[IDKT] = c.[IDKT] and c.[GÆLDER_FRA_DT] <= a.[Date])
+WHERE b.[GÃ†LDER_FRA_DT] = (SELECT MAX(c.[GÃ†LDER_FRA_DT]) FROM [ETZ335IH_PROJECT_JERSEY].[dbo].[XXXX_LRH_Historic_Mort_Int_Rate_Raw] c where b.[IDKT] = c.[IDKT] and c.[GÃ†LDER_FRA_DT] <= a.[Date])
 
 and b.[TRANSAKTIONS_TP] <> 'S'
 
@@ -961,7 +961,7 @@ ON a.[ACCOUNT_NUMBER] = j.[ACCOUNT_NUMBER] and a.[Month] = Cast(Year(Dateadd(m,-
 DROP TABLE [ETZ335IH_PROJECT_JERSEY].[dbo].[XXXX_LRH_Historic_Mort_Cus_Info_Raw]
 
 SELECT distinct [KNID]
-				,[GÆLDER_FRA_DT]
+				,[GÃ†LDER_FRA_DT]
 				,[KNENDT]
 				,[ADLI03]
 				,[ADLI04]
@@ -980,7 +980,7 @@ and TRANSAKTIONS_TP <> 'S'
 
 
 --SELECT [KNID]
---      ,[GÆLDER_FRA_DT]
+--      ,[GÃ†LDER_FRA_DT]
 --      ,[KNENDT]
 --      ,[ADLI03]
 --      ,[ADLI04]
@@ -995,7 +995,7 @@ and TRANSAKTIONS_TP <> 'S'
 --      ,[TRANSAKTIONS_TP]
 --  FROM [ETZ335IH_PROJECT_JERSEY].[dbo].[XXXX_LRH_Historic_Mort_Cus_Info_Raw]
 
---  order by [KNID], [GÆLDER_FRA_DT]
+--  order by [KNID], [GÃ†LDER_FRA_DT]
 
 
 DROP TABLE [ETZ335IH_PROJECT_JERSEY].[dbo].[XXXX_LRH_Historic_Mort_Cus_Info_Temp]
@@ -1026,13 +1026,13 @@ ON a.[PRIMARY_CUSTOMER_ID] = d.[KNID]
 LEFT JOIN [ETZ335IH_PROJECT_JERSEY].[dbo].[XXXX_LRH_Historic_Mort_Cus_Info_Cleaned] e
 ON a.[SECONDARY_CUSTOMER_ID] = e.[KNID]
 
-where b.[GÆLDER_FRA_DT] = (SELECT max(b2.[GÆLDER_FRA_DT]) FROM [ETZ335IH_PROJECT_JERSEY].[dbo].[XXXX_LRH_Historic_Mort_Cus_Info_Cleaned] b2 where b.[KNID] = b2.[KNID])
+where b.[GÃ†LDER_FRA_DT] = (SELECT max(b2.[GÃ†LDER_FRA_DT]) FROM [ETZ335IH_PROJECT_JERSEY].[dbo].[XXXX_LRH_Historic_Mort_Cus_Info_Cleaned] b2 where b.[KNID] = b2.[KNID])
 
-and (c.[GÆLDER_FRA_DT] = (SELECT max(c2.[GÆLDER_FRA_DT]) FROM [ETZ335IH_PROJECT_JERSEY].[dbo].[XXXX_LRH_Historic_Mort_Cus_Info_Cleaned] c2 where c.[KNID] = c2.[KNID]) or a.[SECONDARY_CUSTOMER_ID] is null)
+and (c.[GÃ†LDER_FRA_DT] = (SELECT max(c2.[GÃ†LDER_FRA_DT]) FROM [ETZ335IH_PROJECT_JERSEY].[dbo].[XXXX_LRH_Historic_Mort_Cus_Info_Cleaned] c2 where c.[KNID] = c2.[KNID]) or a.[SECONDARY_CUSTOMER_ID] is null)
 
-and d.[GÆLDER_FRA_DT] = (SELECT max(d2.[GÆLDER_FRA_DT]) FROM [ETZ335IH_PROJECT_JERSEY].[dbo].[XXXX_LRH_Historic_Mort_Cus_Info_Cleaned] d2 where d.[KNID] = d2.[KNID] and d2.[GÆLDER_FRA_DT] <= a.[Date] and d2.[ADDRESS_CLEANED] is not null)
+and d.[GÃ†LDER_FRA_DT] = (SELECT max(d2.[GÃ†LDER_FRA_DT]) FROM [ETZ335IH_PROJECT_JERSEY].[dbo].[XXXX_LRH_Historic_Mort_Cus_Info_Cleaned] d2 where d.[KNID] = d2.[KNID] and d2.[GÃ†LDER_FRA_DT] <= a.[Date] and d2.[ADDRESS_CLEANED] is not null)
 
-and (e.[GÆLDER_FRA_DT] = (SELECT max(e2.[GÆLDER_FRA_DT]) FROM [ETZ335IH_PROJECT_JERSEY].[dbo].[XXXX_LRH_Historic_Mort_Cus_Info_Cleaned] e2 where e.[KNID] = e2.[KNID] and e2.[GÆLDER_FRA_DT] <= a.[Date] and e2.[ADDRESS_CLEANED] is not null) or a.[SECONDARY_CUSTOMER_ID] is null)
+and (e.[GÃ†LDER_FRA_DT] = (SELECT max(e2.[GÃ†LDER_FRA_DT]) FROM [ETZ335IH_PROJECT_JERSEY].[dbo].[XXXX_LRH_Historic_Mort_Cus_Info_Cleaned] e2 where e.[KNID] = e2.[KNID] and e2.[GÃ†LDER_FRA_DT] <= a.[Date] and e2.[ADDRESS_CLEANED] is not null) or a.[SECONDARY_CUSTOMER_ID] is null)
 
 
 DROP TABLE [ETZ335IH_PROJECT_JERSEY].[dbo].[XXXX_LRH_Historic_Mort_Cus_Occ_Pri_Temp]
@@ -1121,7 +1121,7 @@ DROP TABLE [ETZ335IH_PROJECT_JERSEY].[dbo].[XXXX_LRH_Historic_Mort_Cus_DOB_Raw]
 
 SELECT distinct [INV_ID]
 				,[IN_BIRTH_DT]
-				,[GÆLDER_FRA_DT]
+				,[GÃ†LDER_FRA_DT]
 
 INTO [ETZ335IH_PROJECT_JERSEY].[dbo].[XXXX_LRH_Historic_Mort_Cus_DOB_Raw]
 
@@ -1143,7 +1143,7 @@ INTO [ETZ335IH_PROJECT_JERSEY].[dbo].[XXXX_LRH_Historic_Mort_Cus_DOB_Temp]
 
 FROM [ETZ335IH_PROJECT_JERSEY].[dbo].[XXXX_LRH_Historic_Mort_Cus_DOB_Raw] a
 
-where a.[GÆLDER_FRA_DT] = (SELECT max(b.[GÆLDER_FRA_DT]) FROM [ETZ335IH_PROJECT_JERSEY].[dbo].[XXXX_LRH_Historic_Mort_Cus_DOB_Raw] b where a.[INV_ID] = b.[INV_ID])
+where a.[GÃ†LDER_FRA_DT] = (SELECT max(b.[GÃ†LDER_FRA_DT]) FROM [ETZ335IH_PROJECT_JERSEY].[dbo].[XXXX_LRH_Historic_Mort_Cus_DOB_Raw] b where a.[INV_ID] = b.[INV_ID])
 
 
 DROP TABLE [ETZ335IH_PROJECT_JERSEY].[dbo].[XXXX_LRH_Historic_Mort_Cus_Info_Final]
@@ -1851,7 +1851,7 @@ FROM (
       ,[FACT_DT] as [Date]
       ,left([IDKT],10) as [Account_Number]
    --   ,[REST_LOEBETID_DG] as [Period_to_Maturity_Days]
-	  --,[REST_LØBETID_GRP] as [Period_to_Maturity_Months]
+	  --,[REST_LÃ˜BETID_GRP] as [Period_to_Maturity_Months]
       ,[BETYD_MAX_OPR] as [Base_Limit]
       ,[UDNYTTELSE_OPR] as [Base_Exposure]
       ,[SALDO_OPR] as [Base_Balance]
@@ -1897,7 +1897,7 @@ FROM (
       ,[FACT_DT] as [Date]
       ,left([IDKT],10) as [Account_Number]
    --   ,[REST_LOEBETID_DG] as [Period_to_Maturity_Days]
-	  --,[REST_LØBETID_GRP] as [Period_to_Maturity_Months]
+	  --,[REST_LÃ˜BETID_GRP] as [Period_to_Maturity_Months]
       ,[BETYD_MAX_OPR] as [Base_Limit]
       ,[UDNYTTELSE_OPR] as [Base_Exposure]
       ,[SALDO_OPR] as [Base_Balance]
@@ -1943,7 +1943,7 @@ FROM (
       ,[FACT_DT] as [Date]
       ,left([IDKT],10) as [Account_Number]
    --   ,[REST_LOEBETID_DG] as [Period_to_Maturity_Days]
-	  --,[REST_LØBETID_GRP] as [Period_to_Maturity_Months]
+	  --,[REST_LÃ˜BETID_GRP] as [Period_to_Maturity_Months]
       ,[BETYD_MAX_OPR] as [Base_Limit]
       ,[UDNYTTELSE_OPR] as [Base_Exposure]
       ,[SALDO_OPR] as [Base_Balance]
@@ -1989,7 +1989,7 @@ FROM (
       ,[FACT_DT] as [Date]
       ,left([IDKT],10) as [Account_Number]
    --   ,[REST_LOEBETID_DG] as [Period_to_Maturity_Days]
-	  --,[REST_LØBETID_GRP] as [Period_to_Maturity_Months]
+	  --,[REST_LÃ˜BETID_GRP] as [Period_to_Maturity_Months]
       ,[BETYD_MAX_OPR] as [Base_Limit]
       ,[UDNYTTELSE_OPR] as [Base_Exposure]
       ,[SALDO_OPR] as [Base_Balance]
@@ -2035,7 +2035,7 @@ FROM (
       ,[FACT_DT] as [Date]
       ,left([IDKT],10) as [Account_Number]
    --   ,[REST_LOEBETID_DG] as [Period_to_Maturity_Days]
-	  --,[REST_LØBETID_GRP] as [Period_to_Maturity_Months]
+	  --,[REST_LÃ˜BETID_GRP] as [Period_to_Maturity_Months]
       ,[BETYD_MAX_OPR] as [Base_Limit]
       ,[UDNYTTELSE_OPR] as [Base_Exposure]
       ,[SALDO_OPR] as [Base_Balance]
@@ -2081,7 +2081,7 @@ FROM (
       ,[FACT_DT] as [Date]
       ,left([IDKT],10) as [Account_Number]
    --   ,[REST_LOEBETID_DG] as [Period_to_Maturity_Days]
-	  --,[REST_LØBETID_GRP] as [Period_to_Maturity_Months]
+	  --,[REST_LÃ˜BETID_GRP] as [Period_to_Maturity_Months]
       ,[BETYD_MAX_OPR] as [Base_Limit]
       ,[UDNYTTELSE_OPR] as [Base_Exposure]
       ,[SALDO_OPR] as [Base_Balance]
@@ -2127,7 +2127,7 @@ FROM (
       ,[FACT_DT] as [Date]
       ,left([IDKT],10) as [Account_Number]
    --   ,[REST_LOEBETID_DG] as [Period_to_Maturity_Days]
-	  --,[REST_LØBETID_GRP] as [Period_to_Maturity_Months]
+	  --,[REST_LÃ˜BETID_GRP] as [Period_to_Maturity_Months]
       ,[BETYD_MAX_OPR] as [Base_Limit]
       ,[UDNYTTELSE_OPR] as [Base_Exposure]
       ,[SALDO_OPR] as [Base_Balance]
@@ -2322,8 +2322,8 @@ DROP TABLE	[ETZ335IH_PROJECT_JERSEY].[dbo].[XXXX_LRH_Historic_Other_Arrears_Date
 
 SELECT		distinct left(a.ar_id,10) as Account_number, 
 			a.[OTDT] as Start_DT 
-			,case when a.TRANSAKTIONS_TP <> 'S' then NULL else a.[GÆLDER_FRA_DT] end as End_DT
-			,CASE WHEN a.TRANSAKTIONS_TP = 'S' THEN DATEDIFF(DAY,a.[OTDT],a.[GÆLDER_FRA_DT]) END AS Days_in_Arrears
+			,case when a.TRANSAKTIONS_TP <> 'S' then NULL else a.[GÃ†LDER_FRA_DT] end as End_DT
+			,CASE WHEN a.TRANSAKTIONS_TP = 'S' THEN DATEDIFF(DAY,a.[OTDT],a.[GÃ†LDER_FRA_DT]) END AS Days_in_Arrears
 
 INTO		[ETZ335IH_PROJECT_JERSEY].[dbo].[XXXX_LRH_Historic_Other_Arrears_Dates]
 
@@ -2338,9 +2338,9 @@ where		(	-- Came out of arrears
 				or
 				--Still in arrears
 				(
-					a.[GÆLDER_FRA_DT] =
+					a.[GÃ†LDER_FRA_DT] =
 					(
-						select	max([GÆLDER_FRA_DT])
+						select	max([GÃ†LDER_FRA_DT])
 						from	[ETZ335IH_PROJECT_JERSEY].[dbo].[XXXX_LRH_Historic_Other_Arrears_Raw] d
 						where	a.AR_ID = d.AR_ID
 					)
@@ -2828,8 +2828,8 @@ ON a.[ACCOUNT_NUMBER] = c.[ACCOUNT_NUMBER]
 left join (
 			select IDKT, LNFM 
 			from [ETZ335IH_PROJECT_JERSEY].[dbo].[XXXX_LRH_Historic_Mort_Payments_Raw] b
-			where b.[GÆLDER_FRA_DT] = (
-										select MAX(b1.GÆLDER_FRA_DT) 
+			where b.[GÃ†LDER_FRA_DT] = (
+										select MAX(b1.GÃ†LDER_FRA_DT) 
 										from [ETZ335IH_PROJECT_JERSEY].[dbo].[XXXX_LRH_Historic_Mort_Payments_Raw] b1
 										where b.IDKT = b1.IDKT
 										and b1.[TRANSAKTIONS_TP] <> 'S'
