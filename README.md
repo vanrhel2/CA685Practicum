@@ -29,6 +29,18 @@ Used to extract historical arrears data for the mortgages.
 
 Used to extract original balance data for the mortgages.
 
-5. XXXX_LRH_Historic_Mort_Arrears.sas
+5. XXXX_LRH_Historic_Other_Arrears.sas
 
 Used to extract historical arrears data for the related accounts.
+
+6. XXXX_LRH_Historic_Mort_Cus_Prop.sas
+
+Used to extract the properties which secure the mortgages.
+
+7. XXXX_LRH_Historic_Mort_Cus_Prop_Info.sas
+
+Used to extract the basic information of the properties securing the mortgages.
+
+8. XXXX_LRH_Historic_Mort_Cus_Prop_Val.sas
+
+Used to extract the valuation of the properties secuirng the mortgages.
