@@ -68,3 +68,10 @@ PDF detailing the results of the Backward Stepwise Logistic Regression model use
 SAS Report - Proportional Hazards.pdf
 
 PDF detailing the results of the Proportional Hazards model used as part of Survival Analysis
+
+
+<b>Final Logistic Regression Results</b>
+
+XXXX_LRH_Historic_Master_Filter_Testing_Predict.sql
+
+SQL script used to clean and extract results from Predicted Testing dataset.
