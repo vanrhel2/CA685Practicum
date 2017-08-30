@@ -62,11 +62,11 @@ proc sql noprint;
 	else INIT_AVY_AMT 
 	end as Original_Balance,
 	'Original' as Original_Balance_Category, 
-	GÆLDER_FRA_DT
+	GÃ†LDER_FRA_DT
 
 	FROM DKDDBPE_GEPM.EW.WH_AR_AVY_H a
 
-	where GÆLDER_FRA_DT = (select distinct min(GÆLDER_FRA_DT) FROM DKDDBPE_GEPM.EW.WH_AR_AVY_H b where a.ar_id = b.ar_id and b.ar_id in ( &acclist ) and INIT_AVY_AMT <> 0 and GÆLDER_FRA_DT >= '2011-09-23')
+	where GÃ†LDER_FRA_DT = (select distinct min(GÃ†LDER_FRA_DT) FROM DKDDBPE_GEPM.EW.WH_AR_AVY_H b where a.ar_id = b.ar_id and b.ar_id in ( &acclist ) and INIT_AVY_AMT <> 0 and GÃ†LDER_FRA_DT >= '2011-09-23')
 	and ar_id in ( &acclist ) );
 	QUIT;
 
@@ -124,11 +124,11 @@ proc sql noprint;
 	else INIT_AVY_AMT 
 	end as Original_Balance,
 	'Original' as Original_Balance_Category, 
-	GÆLDER_FRA_DT
+	GÃ†LDER_FRA_DT
 
 	FROM DKDDBPE_GEPM.EW.WH_AR_AVY_H a
 
-	where GÆLDER_FRA_DT = (select distinct min(GÆLDER_FRA_DT) FROM DKDDBPE_GEPM.EW.WH_AR_AVY_H b where a.ar_id = b.ar_id and b.ar_id in ( &acclist ) and INIT_AVY_AMT <> 0 and GÆLDER_FRA_DT >= '2011-09-23')
+	where GÃ†LDER_FRA_DT = (select distinct min(GÃ†LDER_FRA_DT) FROM DKDDBPE_GEPM.EW.WH_AR_AVY_H b where a.ar_id = b.ar_id and b.ar_id in ( &acclist ) and INIT_AVY_AMT <> 0 and GÃ†LDER_FRA_DT >= '2011-09-23')
 	and ar_id in ( &acclist ) );
 	QUIT;
 
@@ -216,11 +216,11 @@ proc sql noprint;
 	else INIT_AVY_AMT 
 	end as Original_Balance,
 	'DCS' as Original_Balance_Category,
-	GÆLDER_FRA_DT
+	GÃ†LDER_FRA_DT
 
 	FROM DKDDBPE_GEPM.EW.WH_AR_AVY_H a
 
-	where GÆLDER_FRA_DT = (select distinct min(GÆLDER_FRA_DT) FROM DKDDBPE_GEPM.EW.WH_AR_AVY_H b where a.ar_id = b.ar_id and b.ar_id in ( &acclist ) and (INIT_AVY_AMT > 0.1 or INIT_AVY_AMT < -0.1))
+	where GÃ†LDER_FRA_DT = (select distinct min(GÃ†LDER_FRA_DT) FROM DKDDBPE_GEPM.EW.WH_AR_AVY_H b where a.ar_id = b.ar_id and b.ar_id in ( &acclist ) and (INIT_AVY_AMT > 0.1 or INIT_AVY_AMT < -0.1))
 	and ar_id in ( &acclist ) );
 
 	QUIT;
