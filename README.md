@@ -44,3 +44,27 @@ Used to extract the basic information of the properties securing the mortgages.
 8. XXXX_LRH_Historic_Mort_Cus_Prop_Val.sas
 
 Used to extract the valuation of the properties secuirng the mortgages.
+
+9. XXXX_LRH_Historic_Master.sas 
+
+Script used to import the final dataset from SQL server to SAS for testing.
+Also splits the dataset into Training and Testing datasets in a 70:30 ratio.
+
+
+<b>SAS Enterprise Guide Project</b>
+
+XXXX_LRH_Historic.egp
+
+SAS enterprise Guide Project which holds details of the overall process flow.
+Also has the testing scripts used for Variable Selection, Logistic Regression and Proportional Hazards Survival Analysis.
+
+
+<b>PDF Reports</b>
+
+SAS Report - Logistic Regression.pdf
+
+PDF detailing the results of the Backward Stepwise Logistic Regression model used as part of Variable Selection
+
+SAS Report - Proportional Hazards.pdf
+
+PDF detailing the results of the Proportional Hazards model used as part of Survival Analysis
