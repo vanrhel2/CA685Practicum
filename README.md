@@ -8,7 +8,7 @@ All source code used as part of data extracting, cleaning and testing of the mod
 The SAS Enterprise Guide project and PDFs of the final results are also shown.
 
 
-# SQL Scritps
+<b>SQL Scritps</b>
 
 1. XXXX_LRH_Historic.sql 
 
